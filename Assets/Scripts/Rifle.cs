@@ -11,6 +11,8 @@ public class Rifle : MonoBehaviour
     public float shootingRange = 100f;
     public float fireChange = 15f;
     private float nextTimeToShoot = 0f;
+    public Animator animator;
+
     public PlayerScript player;
     public Transform hand;
 
@@ -47,8 +49,30 @@ public class Rifle : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot)
 
         {
+            animator.SetBool("Fire", true);
+            animator.SetBool("Idle", false);
             nextTimeToShoot = Time.time + 1f / fireChange;
             Shoot();
+        }
+        else if(Input.GetButton("Fire1") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            animator.SetBool("Idle", false);
+            animator.SetBool("FireWalk", true);
+        }
+        else if(Input.GetButton("Fire2") && Input.GetButton("Fire1"))
+        {
+            animator.SetBool("Idle", false);
+            animator.SetBool("IdleAim", true);
+            animator.SetBool("FireWalk", true);
+            animator.SetBool("Walk", true);
+            animator.SetBool("Reloading", false);
+        }
+        else
+        {
+            animator.SetBool("Fire", false);
+            animator.SetBool("Idle", true);
+            animator.SetBool("FireWalk", false);
+
         }
     }
     private void Shoot()
