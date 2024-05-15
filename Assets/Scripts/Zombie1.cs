@@ -114,7 +114,7 @@ public class Zombie1 : MonoBehaviour
     {
         previouslyAttack = false;
     }
-    public void ZombieHitDamage(float takeDamage) // Đã làm công khai
+    public void ZombieHitDamage(float takeDamage)
     {
         presentHealth -= takeDamage;
         if (presentHealth <= 0)

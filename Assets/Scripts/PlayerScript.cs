@@ -35,7 +35,6 @@ public class PlayerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         presentHealth = playerHealth;
     }
-
     private void Update()
     {
         onSurface = Physics.CheckSphere(surfaceCheck.position, surfaceDistance, surfaceMark);
@@ -79,9 +78,9 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("Idle", true);
             animator.SetBool("Walk", false);
             animator.SetBool("Running", false);
+
         }
     }
-
     void Jump()
     {
         if (Input.GetButtonDown("Jump") && onSurface)
@@ -126,7 +125,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void PlayerHitDamage(float takeDamage) // Ensure the method is public and the name is correct
+    public void PlayerHitDamage(float takeDamage) 
     {
         presentHealth -= takeDamage;
         if (presentHealth <= 0)
