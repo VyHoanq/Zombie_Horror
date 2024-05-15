@@ -3,7 +3,27 @@ guid: 249d6b854cd98b34fbe88be6f2bbde23
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prisoner_material
+    second: {fileID: 2100000, guid: c7b2d63799673f745bcfd88b3471c9d7, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: prisoner_diffuse
+    second: {fileID: 2800000, guid: c11d8402fa79d4b4590415207ba14d6c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: prisoner_normal
+    second: {fileID: 2800000, guid: a7bdd026b83a21e48b89fa9cbe6eab07, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: prisoner_specular
+    second: {fileID: 2800000, guid: 04ea9fbef4ea6bb4dad483ed63796e08, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -99,7 +119,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

@@ -3,7 +3,37 @@ guid: 3d7ac749d4c2b344e975c815f3f8d4b4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yaku_zombie_material
+    second: {fileID: 2100000, guid: 8dce64ce2d48d9949bde38354e0972a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yifu
+    second: {fileID: 2100000, guid: 86d8a19c08829de4e93d29e1aebda253, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Yakuzombie_
+    second: {fileID: 2800000, guid: 335ee2ab0a2ffc94e83148aa8dcc99ee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Yakuzombie_diffuse
+    second: {fileID: 2800000, guid: a92738c8202192c498b5a163dade888b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Yakuzombie_normal
+    second: {fileID: 2800000, guid: 746fe86d1f006694584ff3ead95d14e4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Yakuzombie_specular
+    second: {fileID: 2800000, guid: 509d3b76a5f5908448bde89067d3a32e, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -99,7 +129,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
