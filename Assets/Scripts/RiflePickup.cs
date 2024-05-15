@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class RiflePickup : MonoBehaviour
 {
-    [Header("Rifle")]
+    [Header("Rifle's")]
     public GameObject PlayerRifle;
     public GameObject PickupRifle;
     public PlayerPunch playerPunch;
-
+    //public GameObject rifleUI;
 
     [Header("Rifle Assign Things")]
     public PlayerScript player;
-    private float radius = 2.5f;
+    private float radius = 1.5f;
     public Animator animator;
-    private float nextToTimeToPunch = 0f;
+    private float nextTimeToPunch = 0f;
     public float punchCharge = 15f;
 
     private void Awake()
     {
         PlayerRifle.SetActive(false);
+        //rifleUI.SetActive(false);
     }
-
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextToTimeToPunch)
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToPunch)
         {
             animator.SetBool("Punch", true);
             animator.SetBool("Idle", false);
-
-            nextToTimeToPunch = Time.time + 1f / punchCharge;
-
+            nextTimeToPunch = Time.time + 1f / punchCharge;
             playerPunch.Punch();
+
         }
         else
         {
@@ -48,6 +47,7 @@ public class RiflePickup : MonoBehaviour
 
                 //objective completed
             }
+
         }
     }
 }

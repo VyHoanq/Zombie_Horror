@@ -6,13 +6,11 @@ public class Rifle : MonoBehaviour
 {
     [Header("Rifle Things")]
     public Camera cam;
-
     public float giveDamageOf = 10f;
     public float shootingRange = 100f;
     public float fireChange = 15f;
     private float nextTimeToShoot = 0f;
     public Animator animator;
-
     public PlayerScript player;
     public Transform hand;
 
@@ -27,6 +25,7 @@ public class Rifle : MonoBehaviour
     [Header("Rifle Effects")]
     public ParticleSystem muzzleSpark;
     public GameObject WoodedEffect;
+    public GameObject goreEffect;
 
     private void Awake()
     {
@@ -37,29 +36,28 @@ public class Rifle : MonoBehaviour
 
     private void Update()
     {
-        if(setReloading)
-        return;
-
-        if(presentAmmunition <= 0)
+        if (setReloading)
+            return;
+        if (presentAmmunition <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot)
 
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot)
         {
             animator.SetBool("Fire", true);
             animator.SetBool("Idle", false);
             nextTimeToShoot = Time.time + 1f / fireChange;
             Shoot();
         }
-        else if(Input.GetButton("Fire1") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetButton("Fire1") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             animator.SetBool("Idle", false);
             animator.SetBool("FireWalk", true);
         }
-        else if(Input.GetButton("Fire2") && Input.GetButton("Fire1"))
+        else if (Input.GetButton("Fire2") && Input.GetButton("Fire1"))
         {
             animator.SetBool("Idle", false);
             animator.SetBool("IdleAim", true);
@@ -72,9 +70,9 @@ public class Rifle : MonoBehaviour
             animator.SetBool("Fire", false);
             animator.SetBool("Idle", true);
             animator.SetBool("FireWalk", false);
-
         }
     }
+
     private void Shoot()
     {
         // check for mag 
@@ -99,12 +97,20 @@ public class Rifle : MonoBehaviour
 
             ObjectToHit objectToHit = hitInfo.transform.GetComponent<ObjectToHit>();
 
+            Zombie1 zombie1 = hitInfo.transform.GetComponent<Zombie1>();
+
 
             if (objectToHit != null)
             {
                 objectToHit.ObjectHitDamage(giveDamageOf);
                 GameObject WoodGo = Instantiate(WoodedEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 Destroy(WoodGo, 1f);
+            }
+            else if (zombie1 != null)
+            {
+                zombie1.ZombieHitDamage(giveDamageOf);
+                GameObject goreEffectGo = Instantiate(goreEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                Destroy(goreEffectGo, 1f);
             }
         }
     }
@@ -113,8 +119,8 @@ public class Rifle : MonoBehaviour
         player.playerSpeed = 0f;
         player.playerSprint = 0f;
         setReloading = true;
-        Debug.Log("Reloading...");
-        //play aim
+        Debug.Log("Reload...");
+        animator.SetBool("Reloading", true);
         //play reload sound
         yield return new WaitForSeconds(reloadingTime);
         //play aim
