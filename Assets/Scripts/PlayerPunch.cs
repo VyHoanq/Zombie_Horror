@@ -9,6 +9,7 @@ public class PlayerPunch : MonoBehaviour
     public float giveDamageOf = 10f;
     public float punchingRange = 5f;
 
+
     public void Punch()
     {
         RaycastHit hitInfo;
