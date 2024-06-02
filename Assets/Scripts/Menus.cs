@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {
@@ -64,16 +65,17 @@ public class Menus : MonoBehaviour
 
     public void Restart()
     {
-        //Restart
+        SceneManager.LoadScene("MainMenu");
 
     }
 
-    public void LoadMenu() { 
-        // Load menu
+    public void LoadMenu() {
+        SceneManager.LoadScene("MainMenu");
     }
 
-    public void QuitGame() {
-        Debug.Log("Quitting game ...");
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game...");
         Application.Quit();
     }
     void Pause()
