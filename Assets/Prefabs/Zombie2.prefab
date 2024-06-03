@@ -2550,7 +2550,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2637,7 +2637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b590f91dbd4d894f82cf677ae5560bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepSound: []
+  footstepSound:
+  - {fileID: 8300000, guid: 6aa2774a25e57a545b1fb244555ffbc6, type: 3}
 --- !u!1 &8255215394464592721
 GameObject:
   m_ObjectHideFlags: 0
