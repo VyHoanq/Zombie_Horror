@@ -18,7 +18,7 @@ public class Rifle : MonoBehaviour
 
     [Header("Rifle Ammunition and shooting")]
     private int maximumAmmunition = 32;
-    public int mag = 10;
+    public int mag = 1;
     private int presentAmmunition;
     public float reloadingTime = 1.3f;
     private bool setReloading = false;
@@ -28,6 +28,11 @@ public class Rifle : MonoBehaviour
     public ParticleSystem muzzleSpark;
     public GameObject WoodedEffect;
     public GameObject goreEffect;
+
+    [SerializeField] public GameObject AmmoOutUI;
+    [SerializeField] public AudioClip reloadingSound; 
+    [SerializeField] public AudioClip shootingSound;
+    [SerializeField] public AudioSource audioSource;
 
     private void Awake()
     {
@@ -83,6 +88,7 @@ public class Rifle : MonoBehaviour
         if(mag ==0)
         {
             // show ammo out next
+            StartCoroutine(ShowAmmoCounter());
             return;
         }
         presentAmmunition--;
@@ -96,7 +102,9 @@ public class Rifle : MonoBehaviour
         AmmoCount.occurence.UpdateMagText(mag);
 
         muzzleSpark.Play();
+        audioSource.PlayOneShot(shootingSound);
         RaycastHit hitInfo;
+
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, shootingRange))
         {
             Debug.Log(hitInfo.transform.name);
@@ -135,11 +143,18 @@ public class Rifle : MonoBehaviour
         Debug.Log("Reloading...");
         animator.SetBool("Reloading", true);
         //play reload sound
+        audioSource.PlayOneShot(reloadingSound);
         yield return new WaitForSeconds(reloadingTime);
         //play aim
         presentAmmunition = maximumAmmunition;
         player.playerSpeed = 2f;
         player.playerSprint = 3;
         setReloading = false;
+    }
+    IEnumerator ShowAmmoCounter()
+    {
+        AmmoOutUI.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        AmmoOutUI.SetActive(false);
     }
 }

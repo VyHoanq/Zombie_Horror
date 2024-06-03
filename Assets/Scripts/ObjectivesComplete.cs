@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 
@@ -19,48 +20,47 @@ public class ObjectivesComplete : MonoBehaviour
     }
     public void GetObjectivesDone(bool obj1, bool obj2, bool obj3, bool obj4)
     {
-        if(obj1 == true)
+        if (obj1 == true)
         {
-            objectives1.text = "01. Complete";
+            objectives1.text = "01. Completed";
             objectives1.color = Color.green;
         }
         else
         {
-            objectives1.text = "01. FIND THE RIFLE";
+            objectives1.text = "01. Find the wenpons";
             objectives1.color = Color.white;
         }
 
         if (obj2 == true)
         {
-            objectives1.text = "02. Complete";
-            objectives1.color = Color.green;
+            objectives2.text = "02. Completed";
+            objectives2.color = Color.green;
         }
         else
         {
-            objectives1.text = "02. LOCATION THE VILLAGERS";
-            objectives1.color = Color.white;
+            objectives2.text = "02. The survivor in church";
+            objectives2.color = Color.white;
         }
 
         if (obj3 == true)
         {
-            objectives1.text = "03. Complete";
-            objectives1.color = Color.green;
+            objectives3.text = "03. Completed";
+            objectives3.color = Color.green;
         }
         else
         {
-            objectives1.text = "03. Find vehicle";
-            objectives1.color = Color.white;
+            objectives3.text = "03. Find vehicle";
+            objectives3.color = Color.white;
         }
-
         if (obj4 == true)
         {
-            objectives1.text = "04. Complete";
-            objectives1.color = Color.green;
+            objectives4.text = "04. Completed";
+            objectives4.color = Color.green;
         }
         else
         {
-            objectives1.text = "04. Get all villagers into vehicle";
-            objectives1.color = Color.white;
+            objectives4.text = "04. Get all villagers into vehicle";
+            objectives4.color = Color.white;
         }
     }
 }

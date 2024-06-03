@@ -30,11 +30,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FaceDilate: 0.42
-    - _OutlineSoftness: 0.2
-    - _OutlineWidth: 0.25
-    - _ScaleRatioA: 0.85106385
-    - _ScaleRatioC: 0.35325003
+    - _FaceDilate: 1
+    - _OutlineSoftness: 0.875
+    - _OutlineWidth: 0
+    - _ScaleRatioA: 0.43636364
+    - _ScaleRatioC: 0
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &11400000

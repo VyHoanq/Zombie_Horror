@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {
-    [Header("All Menu's")]
+    [SerializeField]
     public GameObject pauseMenuUI;
     public GameObject EndGameMenuUI;
     public GameObject ObjectiveMenuUI;
@@ -16,39 +16,39 @@ public class Menus : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Escape))
         {
-            if(GameIsStopped)
+            if (GameIsStopped)
             {
                 Resume();
                 Cursor.lockState = CursorLockMode.Locked;
-            } 
+            }
             else
             {
                 Pause();
                 Cursor.lockState = CursorLockMode.None;
             }
         }
-        else if (Input.GetKeyDown("m"))
+        else if (Input.GetKeyDown("j"))
         {
             if (GameIsStopped)
             {
-                removeObjectives();
+                removeObjective();
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 showObjectives();
-                Cursor.lockState= CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
 
     public void showObjectives()
     {
-        ObjectiveMenuUI.SetActive(false);
+        ObjectiveMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsStopped = true;
     }
-    public void removeObjectives()
+    public void removeObjective()
     {
         ObjectiveMenuUI.SetActive(false);
         Time.timeScale = 1f;
