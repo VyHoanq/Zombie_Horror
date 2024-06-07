@@ -14,14 +14,14 @@ public class SelectCharacter : MonoBehaviour
     }
     public void OnCharacter1()
     {
-        SceneManager.LoadScene("ZombieLand");
+        SceneManager.LoadScene("ZombieLand1");
     }
     public void OnCharacter2()
     {
-        SceneManager.LoadScene("ZombieLand1");
+        SceneManager.LoadScene("ZombieLand2");
     }
     public void OnCharacter3()
     {
-        SceneManager.LoadScene("ZombieLand2");
+        SceneManager.LoadScene("ZombieLand3");
     }
 }
